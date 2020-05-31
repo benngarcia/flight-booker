@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  depart_from: 1
+  arrive_to: 1
+  departure_time: 2020-05-29 17:53:03
+  flight_duration: 2020-05-29 17:53:03
+
+two:
+  depart_from: 1
+  arrive_to: 1
+  departure_time: 2020-05-29 17:53:03
+  flight_duration: 2020-05-29 17:53:03

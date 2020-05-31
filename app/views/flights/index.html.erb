@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Search Flights</h1>
+
+<%= select_tag(:arrive_to_id, options_for_select(@airport_options)) %>
+<%= select_tag(:depart_from_id, options_for_select(@airport_options)) %>
+<%= date_select("flight", "departure_time", order: [:day, :month, :year]) %>
+
+
+<br>
+
