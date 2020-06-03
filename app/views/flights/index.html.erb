@@ -2,9 +2,22 @@
 
 <h1>Search Flights</h1>
 
-<%= select_tag(:arrive_to_id, options_for_select(@airport_options)) %>
-<%= select_tag(:depart_from_id, options_for_select(@airport_options)) %>
-<%= date_select("flight", "departure_time", order: [:day, :month, :year]) %>
+<%= form_for :flight, method: :get do |f| %>
+<%= f.select(:depart_from_id, @airport_options) %>
+<%= f.select(:arrive_to_id,  @airport_options) %>
+<%= f.select(:departure_time, @date_options) %>
+<%= select_tag(:number_of_passengers, options_for_select(@num_passenger_options)) %>
+<%= f.submit "Search For Flights"%>
+<% end %>
+
+<h2>Flights that match your criteria:</h2>
+<%= @flights.each do |f| %>
+  <%= params[:flight][:depart_from_id] %> 
+  <%= params[:flight][:arrive_to_id] %>
+  <%= f.time %>
+  <%= f.flight_duration %>
+<% end %>
+
 
 
 <br>

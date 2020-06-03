@@ -4,9 +4,13 @@ class FlightsController < ApplicationController
   # GET /flights
   # GET /flights.json
   def index
-    @flights = Flight.all
+    @flights = Flight.where("depart_from_id = ? AND arrive_to_id = ? AND departure_time = ?", 
+    Airport.find_by( "code = ?", params[:flight][:depart_from_id]).id, 
+    Airport.find_by( "code = ?", params[:flight][:arrive_to_id]).id, params[:flight][:departure_time])
     @flight = Flight.new
     @airport_options = Airport.all.map { |a| [a.code] }
+    @date_options = Flight.all.map { |a| [a.departure_time]}
+    @num_passenger_options = ["1 Passenger", "2 Passenger", "3 Passenger", "4 Passenger", ]
   end
 
   # GET /flights/1
